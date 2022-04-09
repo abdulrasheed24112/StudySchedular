@@ -1,0 +1,93 @@
+package com.development.nest.studyshechdular.ui
+
+import android.content.DialogInterface
+import android.content.Intent
+import android.graphics.Color
+import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.development.nest.studyshechdular.DatabaseHelper.NoteDbHelper
+import com.development.nest.studyshechdular.R
+import com.development.nest.studyshechdular.adapter.NoteRecyclerViewAdapter
+import com.development.nest.studyshechdular.models.Note
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
+class NotesActivity : AppCompatActivity() {
+    lateinit var fab: FloatingActionButton
+    var notes: ArrayList<Note>? = null
+    var noteDbHelper: NoteDbHelper? = null
+    var recyclerView: RecyclerView? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_notes)
+        noteDbHelper = NoteDbHelper(this)
+        notes = noteDbHelper!!.getAll()
+
+        fab = findViewById(R.id.floatingActionButton)
+        recyclerView = findViewById(R.id.recyclerView)
+
+        fab.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@NotesActivity, CreateNoteActivity::class.java
+                )
+            )
+        }
+
+        initRecylcerView()
+    }
+    private fun initRecylcerView() {
+
+        val recyclerViewAdapter = NoteRecyclerViewAdapter(this, notes!!)
+        recyclerView!!.setAdapter(recyclerViewAdapter)
+        recyclerView!!.setLayoutManager(LinearLayoutManager(this))
+        val swipeHelper: SwipeHelper = object : SwipeHelper(this, recyclerView) {
+            override fun instantiateUnderlayButton(
+                viewHolder: RecyclerView.ViewHolder?,
+                underlayButtons: MutableList<UnderlayButton?>
+            ) {
+                underlayButtons.add(UnderlayButton(
+                    "Edit",
+                    0,
+                    Color.parseColor("#C7C7CB")
+                ) { pos ->
+                    val intent = Intent(applicationContext, NoteUpdateActivity::class.java)
+                    intent.putExtra("id", notes!![pos].id)
+                    intent.putExtra("note", notes!![pos].note)
+                    startActivity(intent)
+                })
+                underlayButtons.add(UnderlayButton(
+                    "Delete",
+                    0,
+                    Color.parseColor("#FF3C30")
+                ) { pos ->
+                    val dialog = android.app.AlertDialog.Builder(this@NotesActivity)
+                    dialog.setMessage("Are you sure?")
+                    dialog.setTitle("Note delete")
+                    dialog.setIcon(android.R.drawable.ic_dialog_alert)
+                    dialog.setCancelable(false)
+                    dialog.setPositiveButton("yes",
+                        DialogInterface.OnClickListener { dialogInterface, i ->
+                            if (noteDbHelper!!.deleteById(notes!![pos].id)) {
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Note Deleted",
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                                notes!!.removeAt(pos)
+                                recyclerViewAdapter.notifyItemRemoved(pos)
+                            }
+                        })
+                    dialog.setNegativeButton("No",
+                        DialogInterface.OnClickListener { dialogInterface, i -> dialogInterface.cancel() })
+                    dialog.show()
+                })
+            }
+        }
+    }
+
+}
