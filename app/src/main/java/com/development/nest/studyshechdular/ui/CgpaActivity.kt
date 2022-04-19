@@ -50,6 +50,8 @@ class CgpaActivity : AppCompatActivity() {
     private  var sgpaTen:EditText? = null
     private  var sgpaEleven:EditText? = null
     private  var sgpaTwelve:EditText? = null
+    lateinit var back: ImageView
+
     var i = 2
     var j = 1
     var credits = IntArray(11)
@@ -69,9 +71,13 @@ class CgpaActivity : AppCompatActivity() {
 
         calculateCgpaButton!!.setOnClickListener {
             calculateCgpa() }
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
     }
     private fun init() {
+        back=findViewById(R.id.back_cgpa)
         relativeLayoutLast = findViewById(R.id.relativeLayoutLast)
         linearLayoutOne = findViewById(R.id.linearLayoutOne)
         linearLayoutSingleTwo = findViewById(R.id.linearLayoutSingleTwo)
@@ -304,7 +310,7 @@ class CgpaActivity : AppCompatActivity() {
         args.putDouble("totalCgpa", finalCgpa)
         args.putDouble("totalCredit", totalCredit.toDouble())
         args.putInt("totalSemester", totalSemester)
-        dialogFragment.setArguments(args)
+        dialogFragment.arguments = args
         dialogFragment.show(supportFragmentManager, "dialog")
         Toast.makeText(this, finalCgpa.toString(), Toast.LENGTH_SHORT).show()
     }

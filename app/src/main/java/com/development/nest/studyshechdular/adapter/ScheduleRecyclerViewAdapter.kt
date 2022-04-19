@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.development.nest.studyshechdular.R
 import com.development.nest.studyshechdular.models.Schedule
@@ -16,16 +17,10 @@ class ScheduleRecyclerViewAdapter(
         val list: ArrayList<Schedule>): RecyclerView.Adapter<ScheduleRecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        var newSubjectTextView: TextView
-        var itemTextView:TextView
-        var dayTextView:TextView
-        var parentLayout: RelativeLayout
-        init {
-            parentLayout = ItemView.findViewById<RelativeLayout>(R.id.parent_layout)
-            newSubjectTextView = ItemView.findViewById<TextView>(R.id.newSubjectTextView)
-            itemTextView = ItemView.findViewById<TextView>(R.id.itemTextView)
-            dayTextView = ItemView.findViewById<TextView>(R.id.dayTextView)
-        }
+        var newSubjectTextView: TextView = ItemView.findViewById<TextView>(R.id.newSubjectTextView)
+        var itemTextView:TextView = ItemView.findViewById<TextView>(R.id.itemTextView)
+        var dayTextView:TextView = ItemView.findViewById<TextView>(R.id.dayTextView)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleRecyclerViewAdapter.ViewHolder {
@@ -35,9 +30,9 @@ class ScheduleRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ScheduleRecyclerViewAdapter.ViewHolder, position: Int) {
         val schedule=list[position]
-        holder.newSubjectTextView.setText(schedule.subject)
-        holder.itemTextView.setText(schedule.item)
-        holder.dayTextView.setText(schedule.day)
+        holder.newSubjectTextView.text = schedule.subject
+        holder.itemTextView.text = schedule.item
+        holder.dayTextView.text = schedule.day
     }
 
     override fun getItemCount(): Int {

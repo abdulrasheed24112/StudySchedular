@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
     tools:context=".ui.NewScheduleActivity">
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -16,8 +17,8 @@
             android:layout_height="40dp"
             android:layout_gravity="start|top"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10sp" />
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10dp" />
 
         <Spinner
             android:id="@+id/itemSpinner"
@@ -26,8 +27,8 @@
             android:layout_below="@+id/daySpinner"
             android:layout_gravity="fill"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="2sp" />
+            android:layout_marginTop="2sp"
+            android:layout_marginRight="10dp" />
 
         <EditText
             android:id="@+id/subjectTextView"
@@ -35,8 +36,11 @@
             android:layout_height="50dp"
             android:layout_below="@id/itemSpinner"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="10dp"
-            android:hint="Subject" />
+            android:background="@drawable/ed_bg"
+            android:hint="Subject"
+            android:padding="5dp" />
 
         <TimePicker
             android:id="@+id/timePicker"
@@ -44,19 +48,25 @@
             android:layout_height="350dp"
             android:layout_below="@id/subjectTextView"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="10dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/timePicker"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="4sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="16sp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/orange_drawable"
+            android:backgroundTint="@null"
             android:text="SAVE"
+            android:textAllCaps="true"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@color/orange_btn_color" />
     </RelativeLayout>
 </androidx.core.widget.NestedScrollView>

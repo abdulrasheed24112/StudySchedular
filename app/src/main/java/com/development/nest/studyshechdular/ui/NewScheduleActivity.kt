@@ -8,33 +8,35 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.development.nest.studyshechdular.DatabaseHelper.ScheduleDbHelper
 import com.development.nest.studyshechdular.R
-import java.util.*
-import kotlin.collections.ArrayList
 
 class NewScheduleActivity : AppCompatActivity() {
     private var daySpinner: Spinner? = null
-    private  var itemSpinner:Spinner? = null
-     lateinit var saveButton: Button
-     lateinit var timePicker: TimePicker
+    private var itemSpinner: Spinner? = null
+    lateinit var saveButton: Button
+    lateinit var timePicker: TimePicker
     private var scheduleDbHelper: ScheduleDbHelper? = null
     lateinit var subjectTextView: TextView
+    var back: ImageView?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_schedule)
         scheduleDbHelper = ScheduleDbHelper(this)
-
+        back = findViewById(R.id.back_schedule)
+        back?.setOnClickListener {
+            onBackPressed()
+        }
         daySpinner = findViewById(R.id.daySpinner)
         itemSpinner = findViewById(R.id.itemSpinner)
         saveButton = findViewById(R.id.saveButton)
         timePicker = findViewById(R.id.timePicker)
         subjectTextView = findViewById(R.id.subjectTextView)
         setupSpinners()
-        saveButton!!.setOnClickListener(View.OnClickListener {
-            val day = daySpinner!!.getSelectedItem().toString()
-            val item = itemSpinner!!.getSelectedItem().toString()
-            val subject = subjectTextView.getText().toString()
+        saveButton.setOnClickListener(View.OnClickListener {
+            val day = daySpinner!!.selectedItem.toString()
+            val item = itemSpinner!!.selectedItem.toString()
+            val subject = subjectTextView.text.toString()
             val time =
-                timePicker.getCurrentHour().toString() + " : " + timePicker.getCurrentMinute()
+                timePicker.currentHour.toString() + " : " + timePicker.currentMinute
                     .toString()
             if (!TextUtils.isEmpty(day) && !TextUtils.isEmpty(subject) && !TextUtils.isEmpty(item) && !TextUtils.isEmpty(
                     time
@@ -53,6 +55,7 @@ class NewScheduleActivity : AppCompatActivity() {
             }
         })
     }
+
     private fun setupSpinners() {
         val days: ArrayList<String> = ArrayList()
         days.add("Saturday")

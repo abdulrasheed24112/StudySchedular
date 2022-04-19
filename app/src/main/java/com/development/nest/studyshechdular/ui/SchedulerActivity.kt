@@ -5,6 +5,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,37 +21,48 @@ import com.google.android.material.snackbar.Snackbar
 
 class SchedulerActivity : AppCompatActivity() {
     var fab: FloatingActionButton? = null
+    var not_found: TextView? = null
+    var back: ImageView?=null
+
     var schedules: ArrayList<Schedule>? = null
     var scheduleDbHelper: ScheduleDbHelper? = null
+    lateinit var recyclerViewAdapter: ScheduleRecyclerViewAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scheduler)
-//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-//        supportActionBar!!.setDisplayShowHomeEnabled(true)
         scheduleDbHelper = ScheduleDbHelper(this)
         schedules = scheduleDbHelper!!.getAll()
-
         fab = findViewById(R.id.fab)
-
+        not_found = findViewById(R.id.no_sc_found)
+        back = findViewById(R.id.back_schedule)
+        back?.setOnClickListener {
+            onBackPressed()
+        }
         fab!!.setOnClickListener(View.OnClickListener { view ->
             Snackbar.make(view, "New", Snackbar.LENGTH_SHORT)
-                    .setAction("Action", null).show()
-              startActivity(Intent(this@SchedulerActivity, NewScheduleActivity::class.java))
+                .setAction("Action", null).show()
+            startActivity(Intent(this@SchedulerActivity, NewScheduleActivity::class.java))
+            finish()
         })
 
-        initRecylcerView()
+        initRecyclerView()
+
     }
-    private fun initRecylcerView() {
+
+    private fun initRecyclerView() {
         val recyclerView: RecyclerView = findViewById(R.id.scheduleListView)
-        val recyclerViewAdapter = ScheduleRecyclerViewAdapter(this, schedules!!)
-        recyclerView.setAdapter(recyclerViewAdapter)
-        recyclerView.setLayoutManager(LinearLayoutManager(this))
+        recyclerViewAdapter = ScheduleRecyclerViewAdapter(this, schedules!!)
+        recyclerView.adapter = recyclerViewAdapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
         val swipeHelper: SwipeHelper = object : SwipeHelper(this, recyclerView) {
-            override fun instantiateUnderlayButton(viewHolder: RecyclerView.ViewHolder?, underlayButtons: MutableList<UnderlayButton?>) {
+            override fun instantiateUnderlayButton(
+                viewHolder: RecyclerView.ViewHolder?,
+                underlayButtons: MutableList<UnderlayButton?>
+            ) {
                 underlayButtons.add(UnderlayButton(
-                        "Edit",
-                        0,
-                        Color.parseColor("#C7C7CB")
+                    "Edit",
+                    0,
+                    Color.parseColor("#C7C7CB")
                 ) { pos ->
                     val intent = Intent(applicationContext, ScheduleUpdateActivity::class.java)
                     intent.putExtra("id", schedules!![pos].id)
@@ -60,26 +73,42 @@ class SchedulerActivity : AppCompatActivity() {
                     startActivity(intent)
                 })
                 underlayButtons.add(UnderlayButton(
-                        "Delete",
-                        0,
-                        Color.parseColor("#FF3C30")
+                    "Delete",
+                    0,
+                    Color.parseColor("#FF3C30")
                 ) { pos ->
-                    val dialog: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this@SchedulerActivity)
+                    val dialog: android.app.AlertDialog.Builder =
+                        android.app.AlertDialog.Builder(this@SchedulerActivity)
                     dialog.setMessage("Are you sure?")
                     dialog.setTitle("Note delete")
                     dialog.setIcon(android.R.drawable.ic_dialog_alert)
                     dialog.setCancelable(false)
-                    dialog.setPositiveButton("yes", DialogInterface.OnClickListener { dialogInterface, i ->
-                        if (scheduleDbHelper!!.deleteById(schedules!![pos].id)) {
-                            Toast.makeText(applicationContext, "Schedule Deleted", Toast.LENGTH_SHORT).show()
-                            schedules!!.removeAt(pos)
-                            recyclerViewAdapter.notifyItemRemoved(pos)
-                        }
-                    })
-                    dialog.setNegativeButton("No", DialogInterface.OnClickListener { dialogInterface, i -> dialogInterface.cancel() })
+                    dialog.setPositiveButton(
+                        "yes",
+                        DialogInterface.OnClickListener { dialogInterface, i ->
+                            if (scheduleDbHelper!!.deleteById(schedules!![pos].id)) {
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Schedule Deleted",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                schedules!!.removeAt(pos)
+                                recyclerViewAdapter.notifyItemRemoved(pos)
+                            }
+                        })
+                    dialog.setNegativeButton(
+                        "No",
+                        DialogInterface.OnClickListener { dialogInterface, i -> dialogInterface.cancel() })
                     dialog.show()
                 })
             }
+        }
+        if (recyclerViewAdapter.itemCount > 0) {
+            not_found?.visibility = View.INVISIBLE
+        } else {
+            not_found?.visibility = View.VISIBLE
+
+
         }
     }
 }

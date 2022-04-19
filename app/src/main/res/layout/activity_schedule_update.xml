@@ -35,7 +35,10 @@
             android:layout_height="50dp"
             android:layout_below="@id/itemSpinnerUpdate"
             android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="10dp"
+            android:background="@drawable/ed_bg"
             android:hint="Subject" />
 
         <TimePicker
@@ -44,20 +47,23 @@
             android:layout_height="350dp"
             android:layout_below="@id/subjectTextViewUpdate"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="10dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/updateButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/timePickerUpdate"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/lightBlue"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="4sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/orange_drawable"
             android:text="Update"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@color/orange_btn_color" />
     </RelativeLayout>
 </androidx.core.widget.NestedScrollView>
