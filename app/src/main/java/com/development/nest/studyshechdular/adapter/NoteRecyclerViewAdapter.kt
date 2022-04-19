@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.development.nest.studyshechdular.R
 import com.development.nest.studyshechdular.models.Note
@@ -18,9 +19,9 @@ class NoteRecyclerViewAdapter(
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         var textViewNote: TextView? = null
-        var parentLayout: RelativeLayout? = null
+        var parentLayout: ConstraintLayout? = null
         init {
-            parentLayout = ItemView.findViewById<RelativeLayout>(R.id.parent_layout)
+            parentLayout = ItemView.findViewById<ConstraintLayout>(R.id.parent_layout)
             textViewNote = ItemView.findViewById<TextView>(R.id.textViewNote)
         }
     }
