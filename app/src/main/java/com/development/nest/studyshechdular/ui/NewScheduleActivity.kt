@@ -8,6 +8,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.development.nest.studyshechdular.DatabaseHelper.ScheduleDbHelper
 import com.development.nest.studyshechdular.R
+import com.development.nest.studyshechdular.utils.hideKeyboard
 
 class NewScheduleActivity : AppCompatActivity() {
     private var daySpinner: Spinner? = null
@@ -15,16 +16,18 @@ class NewScheduleActivity : AppCompatActivity() {
     lateinit var saveButton: Button
     lateinit var timePicker: TimePicker
     private var scheduleDbHelper: ScheduleDbHelper? = null
+
     lateinit var subjectTextView: TextView
     var back: ImageView?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_schedule)
         scheduleDbHelper = ScheduleDbHelper(this)
-        back = findViewById(R.id.back_schedule)
+        back = findViewById(R.id.back_new_schedule)
         back?.setOnClickListener {
             onBackPressed()
         }
+        back?.hideKeyboard()
         daySpinner = findViewById(R.id.daySpinner)
         itemSpinner = findViewById(R.id.itemSpinner)
         saveButton = findViewById(R.id.saveButton)
@@ -57,15 +60,15 @@ class NewScheduleActivity : AppCompatActivity() {
     }
 
     private fun setupSpinners() {
-        val days: ArrayList<String> = ArrayList()
-        days.add("Saturday")
-        days.add("Sunday")
-        days.add("Monday")
-        days.add("Tuesday")
-        days.add("Wednesday")
-        days.add("Thursday")
-        days.add("Friday")
-        val dataAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, days)
+        val weekDays: ArrayList<String> = ArrayList()
+        weekDays.add("Saturday")
+        weekDays.add("Sunday")
+        weekDays.add("Monday")
+        weekDays.add("Tuesday")
+        weekDays.add("Wednesday")
+        weekDays.add("Thursday")
+        weekDays.add("Friday")
+        val dataAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, weekDays)
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         daySpinner!!.adapter = dataAdapter
         val items: ArrayList<String> = ArrayList()

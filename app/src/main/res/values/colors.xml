@@ -11,6 +11,9 @@
     <color name="orange_btn_color">#f68b53</color>
     <color name="bg_color">#f3f3f3</color>
     <color name="dark_txt_2">#9f9fa0</color>
+    <color name="dark_txt_color">#787878</color>
+    <color name="colorGray">#7c7b7e</color>
+
     <color name="red_color">#fc5c41</color>
     <color name="green_color">#23cb9c</color>
     <color name="yellow_color">#f8b939</color>

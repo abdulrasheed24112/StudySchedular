@@ -34,7 +34,7 @@
             android:layout_toEndOf="@+id/image"
             android:text="Note"
             android:textColor="#000"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@+id/image"
             app:layout_constraintEnd_toEndOf="parent"

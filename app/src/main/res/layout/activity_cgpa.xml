@@ -9,6 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -31,8 +32,8 @@
                     android:id="@+id/back_cgpa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
                     android:layout_marginStart="16dp"
+                    android:padding="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -45,10 +46,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                  android:textColor="@color/white"
+                    android:text="CGPA Calculator"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:text="CGPA Calculator"
                     app:layout_constraintBottom_toBottomOf="@+id/back_cgpa"
                     app:layout_constraintStart_toEndOf="@+id/back_cgpa"
                     app:layout_constraintTop_toTopOf="@+id/back_cgpa" />
@@ -114,6 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutOne"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
                     android:orientation="horizontal"
                     android:weightSum="3">
 
@@ -141,6 +144,7 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+                        android:inputType="number"
                         android:textSize="18sp" />
 
                     <EditText
@@ -149,10 +153,11 @@
                         android:layout_height="40dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-
                         android:background="@drawable/btn_shape"
+
                         android:gravity="center"
                         android:hint="cgpa"
+                        android:inputType="numberDecimal"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -162,7 +167,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleTwo"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -185,8 +192,10 @@
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/btn_shape"
+
                         android:gravity="center"
                         android:hint="credit"
+                        android:inputType="number"
                         android:textSize="18sp" />
 
                     <EditText
@@ -198,6 +207,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+
+                        android:inputType="numberDecimal"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -207,7 +218,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleThree"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -232,6 +245,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+
+                        android:inputType="number"
                         android:textSize="18sp" />
 
                     <EditText
@@ -243,6 +258,7 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+                        android:inputType="numberDecimal"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -252,7 +268,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleFour"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -277,6 +295,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+
+                        android:inputType="number"
                         android:textSize="18sp" />
 
                     <EditText
@@ -288,6 +308,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+                        android:inputType="numberDecimal"
+
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -297,7 +319,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleFive"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -311,6 +335,7 @@
                         android:editable="false"
                         android:gravity="center"
                         android:hint="Semester 5"
+
                         android:textSize="18sp" />
 
                     <EditText
@@ -322,6 +347,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+
+                        android:inputType="number"
                         android:textSize="18sp" />
 
                     <EditText
@@ -333,6 +360,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+                        android:inputType="numberDecimal"
+
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -342,7 +371,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleSix"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -367,6 +398,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+                        android:inputType="number"
+
                         android:textSize="18sp" />
 
                     <EditText
@@ -378,6 +411,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+
+                        android:inputType="numberDecimal"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -387,7 +422,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleSeven"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -412,6 +449,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+                        android:inputType="number"
+
                         android:textSize="18sp" />
 
                     <EditText
@@ -423,6 +462,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+
+                        android:inputType="numberDecimal"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -432,7 +473,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleEight"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -457,6 +500,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+                        android:inputType="number"
+
                         android:textSize="18sp" />
 
                     <EditText
@@ -468,6 +513,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+
+                        android:inputType="numberDecimal"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -477,7 +524,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleNine"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -502,6 +551,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+
+                        android:inputType="number"
                         android:textSize="18sp" />
 
                     <EditText
@@ -513,6 +564,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+
+                        android:inputType="numberDecimal"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -522,7 +575,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleTen"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -533,6 +588,7 @@
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/btn_shape"
+
                         android:editable="false"
                         android:gravity="center"
                         android:hint="Semester 10"
@@ -547,6 +603,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+
+                        android:inputType="number"
                         android:textSize="18sp" />
 
                     <EditText
@@ -558,6 +616,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+
+                        android:inputType="numberDecimal"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -567,7 +627,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleEleven"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -580,6 +642,7 @@
                         android:background="@drawable/btn_shape"
                         android:editable="false"
                         android:gravity="center"
+
                         android:hint="Semester 11"
                         android:textSize="18sp" />
 
@@ -592,6 +655,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+
+                        android:inputType="number"
                         android:textSize="18sp" />
 
                     <EditText
@@ -603,6 +668,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+
+                        android:inputType="numberDecimal"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -613,7 +680,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayoutSingleTwelve"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     android:weightSum="3">
@@ -638,6 +707,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="credit"
+                        android:inputType="number"
+
                         android:textSize="18sp" />
 
                     <EditText
@@ -649,6 +720,8 @@
                         android:background="@drawable/btn_shape"
                         android:gravity="center"
                         android:hint="cgpa"
+                        android:inputType="numberDecimal"
+
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -696,5 +769,24 @@
             </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+    <!--    <androidx.constraintlayout.widget.Guideline-->
+    <!--        android:id="@+id/mid_guide"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintGuide_percent=".80" />-->
+
+    <!--    <include-->
+    <!--        android:id="@+id/small_ad_layout"-->
+    <!--        layout="@layout/include_small_native_ad_layout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="4dp"-->
+    <!--        android:layout_marginEnd="4dp"-->
+    <!--        android:visibility="visible"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/mid_guide" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

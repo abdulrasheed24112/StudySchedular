@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.development.nest.studyshechdular.R
+import com.development.nest.studyshechdular.databinding.ActivityCgpaBinding
 import com.development.nest.studyshechdular.ui.dialog.AlertDialogFragment
 
 class CgpaActivity : AppCompatActivity() {
@@ -51,6 +52,9 @@ class CgpaActivity : AppCompatActivity() {
     private  var sgpaEleven:EditText? = null
     private  var sgpaTwelve:EditText? = null
     lateinit var back: ImageView
+    private val binding by lazy{
+      ActivityCgpaBinding.inflate(layoutInflater)
+    }
 
     var i = 2
     var j = 1
@@ -58,7 +62,7 @@ class CgpaActivity : AppCompatActivity() {
     var sgpas = DoubleArray(11)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cgpa)
+        setContentView(binding.root)
 
         init()
 
@@ -70,10 +74,15 @@ class CgpaActivity : AppCompatActivity() {
             newButtonClicked() }
 
         calculateCgpaButton!!.setOnClickListener {
-            calculateCgpa() }
+            if (creditOne?.text!!.isEmpty()  || sgpaTwo?.text!!.isEmpty()){
+                Toast.makeText(this, "Please Enter Values", Toast.LENGTH_SHORT).show()
+            }else{
+
+            calculateCgpa()} }
         back.setOnClickListener {
             onBackPressed()
         }
+        //displayNative()
 
     }
     private fun init() {

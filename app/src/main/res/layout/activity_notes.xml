@@ -35,7 +35,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textStyle="normal"
             android:text="Notes"
             app:layout_constraintBottom_toBottomOf="@+id/back_notes"
             app:layout_constraintStart_toEndOf="@+id/back_notes"
@@ -68,4 +68,14 @@ android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="@color/white" />
+
+    <TextView
+        android:id="@+id/no_notes_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Notes Found"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

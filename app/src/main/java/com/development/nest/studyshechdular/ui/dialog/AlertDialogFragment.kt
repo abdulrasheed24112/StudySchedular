@@ -1,5 +1,6 @@
 package com.development.nest.studyshechdular.ui.dialog
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,6 @@ import androidx.fragment.app.DialogFragment
 import com.development.nest.studyshechdular.R
 
 class AlertDialogFragment : DialogFragment() {
-
     private var textViewTotalSemester: TextView? = null
     private var textViewTotalSgpa: TextView? = null
     private var textViewTotalCredit: TextView? = null
@@ -21,6 +21,7 @@ class AlertDialogFragment : DialogFragment() {
 
     }
 
+    @SuppressLint("DefaultLocale")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,11 +32,9 @@ class AlertDialogFragment : DialogFragment() {
         textViewTotalSemester = view.findViewById<TextView>(R.id.textViewTotalSemester)
         textViewTotalCredit = view.findViewById<TextView>(R.id.textViewTotalCredit)
         textViewTotalSgpa = view.findViewById<TextView>(R.id.textViewTotalSgpa)
-        textViewTotalCgpa!!.setText(
-            java.lang.String.format(
-                "%.2f",
-                requireArguments().getDouble("totalCgpa")
-            )
+        textViewTotalCgpa!!.text = java.lang.String.format(
+            "%.2f",
+            requireArguments().getDouble("totalCgpa")
         )
         textViewTotalSemester!!.text = requireArguments().getInt("totalSemester").toString()
         textViewTotalSgpa!!.text = requireArguments().getDouble("totalSgpa").toString()

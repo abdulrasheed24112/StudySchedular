@@ -7,59 +7,79 @@
     android:layout_height="match_parent"
     android:background="@color/bg_color"
     tools:context=".ui.NewScheduleActivity">
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <Spinner
-            android:id="@+id/daySpinner"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="start|top"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10sp"
-            android:layout_marginRight="10dp" />
 
-        <Spinner
-            android:id="@+id/itemSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@+id/daySpinner"
-            android:layout_gravity="fill"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="2sp"
-            android:layout_marginRight="10dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/lightBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/subjectTextView"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/itemSpinner"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ed_bg"
-            android:hint="Subject"
-            android:padding="5dp" />
 
-        <TimePicker
-            android:id="@+id/timePicker"
+        <ImageView
+            android:id="@+id/back_new_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Add New Schedule"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/back_new_schedule"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/back_new_schedule"
+            app:layout_constraintTop_toTopOf="@+id/back_new_schedule" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout9"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_below="@id/subjectTextView"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="10dp" />
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/main_screen_shapes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/timePicker"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="16sp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/orange_drawable"
             android:backgroundTint="@null"
             android:text="SAVE"
@@ -67,6 +87,70 @@
             android:textColor="#ffffff"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:backgroundTint="@color/orange_btn_color" />
-    </RelativeLayout>
+            app:backgroundTint="@color/orange_btn_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/main_screen_shapes"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
+
+            <EditText
+                android:id="@+id/subjectTextView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/itemSpinner"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ed_bg"
+                android:hint="Subject"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemSpinner" />
+
+            <Spinner
+                android:id="@+id/itemSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/daySpinner"
+                android:layout_gravity="fill"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/daySpinner"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/daySpinner"
+                app:layout_constraintTop_toBottomOf="@+id/daySpinner" />
+
+            <Spinner
+                android:id="@+id/daySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.core.widget.NestedScrollView>

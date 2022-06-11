@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.development.nest.studyshechdular.Constants.DB
 import com.development.nest.studyshechdular.models.Note
-import kotlin.collections.ArrayList
 
 class NoteDbHelper(context: Context?) : SQLiteOpenHelper(context, DB.NOTES_TABLE_NAME, null, 1) {
     private val context: Context? = null
@@ -30,20 +29,20 @@ class NoteDbHelper(context: Context?) : SQLiteOpenHelper(context, DB.NOTES_TABLE
         return result != -1L
     }
 
-    fun getAll():ArrayList<Note> {
-            val notes: ArrayList<Note> = ArrayList<Note>()
-            val db = this.readableDatabase
-            val query = "SELECT * FROM " + DB.NOTES_TABLE_NAME
-            val cursor = db.rawQuery(query, null)
-            while (cursor.moveToNext()) {
-                val id = cursor.getInt(0).toString()
-                val text = cursor.getString(1)
-                val note = Note(id, text)
-                notes.add(note)
-            }
-            cursor.close()
-            return notes
+    fun getAll(): ArrayList<Note> {
+        val notes: ArrayList<Note> = ArrayList<Note>()
+        val db = this.readableDatabase
+        val query = "SELECT * FROM " + DB.NOTES_TABLE_NAME
+        val cursor = db.rawQuery(query, null)
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(0).toString()
+            val text = cursor.getString(1)
+            val note = Note(id, text)
+            notes.add(note)
         }
+        cursor.close()
+        return notes
+    }
 
     fun deleteById(id: String): Boolean {
         val db = this.readableDatabase

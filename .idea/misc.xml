@@ -3,28 +3,42 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/StudySchedular/app/src/main/res/drawable-mdpi/bg_bottom.xml" value="0.1525" />
+        <entry key="..\:/StudySchedular/app/src/main/res/drawable-mdpi/bg_bottom_sheet.xml" value="0.1955" />
+        <entry key="..\:/StudySchedular/app/src/main/res/drawable-mdpi/rate_us.xml" value="0.2" />
+        <entry key="..\:/StudySchedular/app/src/main/res/drawable-mdpi/share.xml" value="0.2" />
+        <entry key="..\:/StudySchedular/app/src/main/res/drawable-mdpi/stroke_shape.xml" value="0.1955" />
         <entry key="..\:/StudySchedular/app/src/main/res/drawable/back.xml" value="0.2" />
+        <entry key="..\:/StudySchedular/app/src/main/res/drawable/btn_shape.xml" value="0.2" />
         <entry key="..\:/StudySchedular/app/src/main/res/drawable/calc_btn.xml" value="0.2" />
+        <entry key="..\:/StudySchedular/app/src/main/res/drawable/card_bg.xml" value="0.2" />
         <entry key="..\:/StudySchedular/app/src/main/res/drawable/dim_bg.xml" value="0.2" />
         <entry key="..\:/StudySchedular/app/src/main/res/drawable/ed_bg.xml" value="0.2" />
         <entry key="..\:/StudySchedular/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2" />
         <entry key="..\:/StudySchedular/app/src/main/res/drawable/main_screen_shapes.xml" value="0.1575" />
+        <entry key="..\:/StudySchedular/app/src/main/res/drawable/orange_bg.xml" value="0.2" />
         <entry key="..\:/StudySchedular/app/src/main/res/drawable/orange_drawable.xml" value="0.1575" />
         <entry key="..\:/StudySchedular/app/src/main/res/drawable/shape_round.xml" value="0.2" />
-        <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_cgpa.xml" value="0.25" />
+        <entry key="..\:/StudySchedular/app/src/main/res/drawable/white.xml" value="0.1455" />
+        <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_cgpa.xml" value="0.2" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_create_calculator.xml" value="0.1921875" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_create_note.xml" value="0.33" />
-        <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_home.xml" value="0.1921875" />
-        <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_main.xml" value="0.1921875" />
-        <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_new_schedule.xml" value="0.1921875" />
+        <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_home.xml" value="0.22" />
+        <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_new_schedule.xml" value="0.22" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_note_update.xml" value="0.25" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_notes.xml" value="0.22" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_schedule_update.xml" value="0.1921875" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/activity_scheduler.xml" value="0.1921875" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/calculator_layout.xml" value="0.1921875" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/fragment_alert_dialog.xml" value="0.2" />
+        <entry key="..\:/StudySchedular/app/src/main/res/layout/include_small_native_ad_layout.xml" value="0.144140625" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/layout_note_single.xml" value="0.33" />
         <entry key="..\:/StudySchedular/app/src/main/res/layout/layout_schedule_single.xml" value="0.33" />
+        <entry key="..\:/StudySchedular/app/src/main/res/layout/rating_bottom_sheet.xml" value="0.21" />
+        <entry key="..\:/StudySchedular/app/src/main/res/layout/small_native_ad.xml" value="0.33" />
+        <entry key="..\:/StudySchedular/app/src/main/res/layout/small_native_ad_placeholder.xml" value="0.144140625" />
+        <entry key="..\:/StudySchedular/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>

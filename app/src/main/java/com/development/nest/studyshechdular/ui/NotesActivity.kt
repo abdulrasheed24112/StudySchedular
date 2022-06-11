@@ -4,7 +4,9 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,11 +23,13 @@ class NotesActivity : AppCompatActivity() {
     var noteDbHelper: NoteDbHelper? = null
     var recyclerView: RecyclerView? = null
     var back: ImageView? = null
+    var not_found: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes)
         noteDbHelper = NoteDbHelper(this)
         notes = noteDbHelper!!.getAll()
+        not_found=findViewById(R.id.no_notes_found)
         back = findViewById(R.id.back_notes)
         back?.setOnClickListener {
             onBackPressed()
@@ -39,6 +43,7 @@ class NotesActivity : AppCompatActivity() {
                     this@NotesActivity, CreateNoteActivity::class.java
                 )
             )
+            finish()
         }
 
         initRecylcerView()
@@ -74,24 +79,31 @@ class NotesActivity : AppCompatActivity() {
                     dialog.setTitle("Note delete")
                     dialog.setIcon(android.R.drawable.ic_dialog_alert)
                     dialog.setCancelable(false)
-                    dialog.setPositiveButton("yes",
-                        DialogInterface.OnClickListener { dialogInterface, i ->
-                            if (noteDbHelper!!.deleteById(notes!![pos].id)) {
-                                Toast.makeText(
-                                    applicationContext,
-                                    "Note Deleted",
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
-                                notes!!.removeAt(pos)
-                                recyclerViewAdapter.notifyItemRemoved(pos)
-                            }
-                        })
-                    dialog.setNegativeButton("No",
-                        DialogInterface.OnClickListener { dialogInterface, i -> dialogInterface.cancel() })
+                    dialog.setPositiveButton("yes"
+                    ) { _, _ ->
+                        if (noteDbHelper!!.deleteById(notes!![pos].id)) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Note Deleted Successfully",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                            notes!!.removeAt(pos)
+                            recyclerViewAdapter.notifyItemRemoved(pos)
+                        }
+                    }
+                    dialog.setNegativeButton("No"
+                    ) { dialogInterface, _ -> dialogInterface.cancel() }
                     dialog.show()
                 })
             }
+        }
+        if (recyclerViewAdapter.itemCount > 0) {
+            not_found?.visibility = View.INVISIBLE
+        } else {
+            not_found?.visibility = View.VISIBLE
+
+
         }
     }
 
